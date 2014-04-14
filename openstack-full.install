@@ -321,7 +321,8 @@ packages=(
         rubygem-json \
         sysfsutils \
         xfsprogs \
-        xinetd"
+        xinetd \
+        yum-plugin-priorities"
 )
 
 update_repositories $dir
