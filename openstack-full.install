@@ -366,7 +366,7 @@ case "$OS" in
         do_chroot $dir pip install --upgrade kombu
  
         # Install Virtualization for Block Device with RBD support (Ceph)
-        install_packages $dir qemu-kvm qemu-kvm-tools qemu-img
+        install_packages $dir qemu-kvm qemu-kvm-tools qemu-img openstack-nova-compute --skip-broken
 
         do_chroot $dir chkconfig puppet on
 
