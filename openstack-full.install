@@ -322,7 +322,8 @@ packages=(
         sysfsutils \
         xfsprogs \
         xinetd \
-        yum-plugin-priorities"
+        yum-plugin-priorities \
+        yum-skip-broken"
 )
 
 update_repositories $dir
