@@ -299,6 +299,7 @@ packages=(
         openstack-neutron-openvswitch \
         openstack-nova-api \
         openstack-nova-cert \
+        openstack-nova-compute \
         openstack-nova-conductor \
         openstack-nova-console \
         openstack-nova-novncproxy \
@@ -321,8 +322,7 @@ packages=(
         sysfsutils \
         xfsprogs \
         xinetd \
-        yum-plugin-priorities \
-        yum-downloadonly"
+        yum-plugin-priorities"
 )
 
 update_repositories $dir
@@ -365,11 +365,8 @@ case "$OS" in
         do_chroot $dir pip install --upgrade kombu
  
         # Install Virtualization for Block Device with RBD support (Ceph)
+        do_chroot $dir rpm --nodeps -e qemu-kvm-rhev qemu-img-rhev
         install_packages $dir qemu-kvm qemu-kvm-tools qemu-img
-
-        # Install nova-compute in ignoring dependencies
-        do_chroot $dir yum install openstack-nova-compute --downloadonly
-        do_chroot $dir rpm -i openstack-nova-compute*.rpm
 
         do_chroot $dir chkconfig puppet on
 
