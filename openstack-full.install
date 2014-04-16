@@ -366,7 +366,7 @@ case "$OS" in
  
         # Install Virtualization for Block Device with RBD support (Ceph)
         do_chroot $dir rpm --nodeps -e qemu-kvm-rhev qemu-img-rhev
-        install_packages $dir qemu-kvm qemu-kvm-tools qemu-img
+        install_packages $dir qemu-kvm qemu-kvm-tools qemu-img qemu-guest-agent --disablerepo=\* --enablerepo=ceph-qemu
 
         do_chroot $dir chkconfig puppet on
 
