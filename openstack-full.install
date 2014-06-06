@@ -203,7 +203,6 @@ packages=(
         nfs-common \
         nova-api \
         nova-cert \
-        nova-compute-kvm \
         nova-conductor \
         nova-consoleauth \
         nova-consoleproxy \
@@ -306,6 +305,7 @@ case "$OS" in
     ;;&
     "Debian"|"Ubuntu")
         install_packages_disabled $dir ${packages[$(package_type)]}
+        install_packages_disabled $dir nova-compute-kvm
 	for kernel in $(ls $dir/boot/vmlinuz-* |sed "s@$dir/boot/vmlinuz-@@"|fgrep -v 3.12); do
 	    build_dkms openvswitch-datapath-dkms openvswitch $kernel
 	done
