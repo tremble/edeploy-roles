@@ -346,7 +346,7 @@ git clone https://github.com/enovance/openstack-monitoring.git
 
 case "$OS" in
     "Debian")
-        install_packages_disabled $dir -t wheezy-backports linux-headers-3.14-0.bpo.1-amd64 linux-image-3.14-0.bpo.1-amd64
+        install_packages_disabled $dir -t wheezy-backports linux-headers-3.12-0.bpo.1-amd64 linux-image-3.12-0.bpo.1-amd64
         install_packages_disabled $dir ${packages[$(package_type)]}
         cp -pv openstack-monitoring/scripts/*/* $dir/usr/lib/nagios/plugins
     ;;
